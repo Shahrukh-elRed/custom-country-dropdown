@@ -49,21 +49,21 @@ const SearchableCountryCodes = () => {
                         <input type="text" value={searchVal} onChange={(e) => handleDropdownSearch(e)} 
                             placeholder="Search country code" className="searchable-country-codes-search-input"/>
                     </div>
-
-                    <div style={{ height: "36px" }}></div>
-                    {
-                        countryCodeList?.map((item, index) => 
-                            <div key={item?.id}>
-                                {index !== 0 && <hr className="country-codes-list-divider-border" />}
-                                <div className={selectedCode === item.countryCode ? "country-codes-list-item-single country-codes-list-item-single-active" 
-                                    : "country-codes-list-item-single"} onClick={() => selectCodeFromList(item?.countryCode)} >
-                                    <div className="country-codes-list-item-code-num">{item?.countryCode}</div>
-                                    <img src={item?.countryFlagIcon} alt="" className="country-codes-list-item-flag"/>
-                                    <div className="country-codes-list-item-name">{item?.countryName}</div>
+                    <div className="country-codes-list-container">
+                        {
+                            countryCodeList?.map((item, index) => 
+                                <div key={item?.id}>
+                                    {index !== 0 && <hr className="country-codes-list-divider-border" />}
+                                    <div className={selectedCode === item.countryCode ? "country-codes-list-item-single country-codes-list-item-single-active" 
+                                        : "country-codes-list-item-single"} onClick={() => selectCodeFromList(item?.countryCode)} >
+                                        <div className="country-codes-list-item-code-num">{item?.countryCode}</div>
+                                        <img src={item?.countryFlagIcon} alt="" className="country-codes-list-item-flag"/>
+                                        <div className="country-codes-list-item-name">{item?.countryName}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    }
+                            )
+                        }
+                    </div>
                 </div>
                 : null
             }
