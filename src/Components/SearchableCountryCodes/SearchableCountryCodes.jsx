@@ -1,6 +1,6 @@
 import "./searchable-country-codes.scss";
 import { countryCodesData } from "./countryCodesData";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import searchIcon from "./flagImages/searchIcon.svg";
 
 const SearchableCountryCodes = () => {
@@ -8,6 +8,7 @@ const SearchableCountryCodes = () => {
     const [countryCodeList, setCountryCodeList] = useState(countryCodesData);
     const [selectedCode, setSelectedCode] = useState(countryCodesData[0]?.countryCode);
     const [searchVal, setSearchVal] = useState("");
+    const inputRef = useRef();
 
     const selectCodeFromList = (countryCode) => {
         setSelectedCode(countryCode);
@@ -34,6 +35,10 @@ const SearchableCountryCodes = () => {
         const newList = [...new Set([...filteredList1, ...filteredList2])];
         setCountryCodeList(newList);
     }, [searchVal]);
+
+    useEffect(() => {
+        if (showList) inputRef?.current?.focus();
+    }, [showList]);
  
     return (
         <>
@@ -46,7 +51,7 @@ const SearchableCountryCodes = () => {
                         <div className="searchable-country-codes-search-icon-container">
                             <img src={searchIcon} alt="" className="searchable-country-codes-search-icon" />
                         </div>
-                        <input type="text" value={searchVal} onChange={(e) => handleDropdownSearch(e)} 
+                        <input type="text" value={searchVal} onChange={(e) => handleDropdownSearch(e)} ref={inputRef}
                             placeholder="Search country code" className="searchable-country-codes-search-input"/>
                     </div>
                     <div className="country-codes-list-container">
