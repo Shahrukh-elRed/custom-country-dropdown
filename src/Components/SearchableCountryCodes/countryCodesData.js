@@ -28,12 +28,14 @@ export const countryCodesData = [
         countryName: "South Africa 2",
         countryCode: "+28",
         countryFlagIcon: SAFlag,
-    },    {
+    },    
+    {
         id: "4",
         countryName: "South Africa 3",
         countryCode: "+29",
         countryFlagIcon: SAFlag,
-    },    {
+    },    
+    {
         id: "5",
         countryName: "South Africa 4",
         countryCode: "+30",
