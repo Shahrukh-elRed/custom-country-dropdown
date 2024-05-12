@@ -101,7 +101,7 @@
 
 
     .country-codes-list-container {
-        height: 115px;
+        max-height: 115px;
         overflow: auto;
 
         .country-codes-list-item-single {
