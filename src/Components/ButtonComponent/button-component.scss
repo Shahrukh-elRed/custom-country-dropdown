@@ -1,0 +1,18 @@
+.form-submit-button {
+    cursor: pointer;
+    background-color: rgba(231, 45, 56, 1);
+    color: #fff;
+    height: 48px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-top: 60px;
+
+    .submit-button-text {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+}

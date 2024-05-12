@@ -1,0 +1,31 @@
+.form-component-container {
+    width: 375px;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+    }
+
+    .form-header {
+        height: 24px;
+        padding: 10px;
+        font-weight: 500;
+        font-size: 18px;
+        padding-left: 20px;
+    }
+
+    .form-container {
+        padding: 20px;
+
+        .form-filler-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 27px;
+            text-align: left;
+        }
+
+        .form-dropdown-container {
+            margin: 20px 0;
+        }
+    }
+}
