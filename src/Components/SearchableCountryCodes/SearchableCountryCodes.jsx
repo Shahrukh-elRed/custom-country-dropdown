@@ -2,6 +2,8 @@ import "./searchable-country-codes.scss";
 import { countryCodesData } from "./countryCodesData";
 import { useEffect, useRef, useState } from "react";
 import searchIcon from "./flagImages/searchIcon.svg";
+import DownIcon from "./flagImages/red-down-icon.svg";
+import useOnClickOutside from "../../Hooks/useOnClickOutside";
 
 const SearchableCountryCodes = () => {
     const [showList, setShowList] = useState(false);
@@ -9,6 +11,13 @@ const SearchableCountryCodes = () => {
     const [selectedCode, setSelectedCode] = useState(countryCodesData[0]?.countryCode);
     const [searchVal, setSearchVal] = useState("");
     const inputRef = useRef();
+    const dropdownRef = useRef();
+
+    const handlClose = () => {
+        setShowList(false);
+    };
+ 
+    useOnClickOutside(dropdownRef, handlClose);
 
     const selectCodeFromList = (countryCode) => {
         setSelectedCode(countryCode);
@@ -39,11 +48,12 @@ const SearchableCountryCodes = () => {
     useEffect(() => {
         if (showList) inputRef?.current?.focus();
     }, [showList]);
- 
+
     return (
-        <>
+        <div ref={dropdownRef} className="searchable-country-codes-main-container">
             <div className="searchable-country-codes-top-field" onClick={() => setShowList(!showList)}>
                 <span className="codes-top-field-text">{selectedCode}</span>
+                <img src={DownIcon} alt="" className="searchable-country-codes-down-icon" />
             </div>
             {showList ? 
                 <div className="searchable-country-codes-dropdown">
@@ -72,7 +82,7 @@ const SearchableCountryCodes = () => {
                 </div>
                 : null
             }
-        </>
+        </div>
     )
 }
 
